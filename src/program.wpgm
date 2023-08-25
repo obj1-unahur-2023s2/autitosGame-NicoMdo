@@ -8,20 +8,41 @@ program miPrimerWollokGame {
 	game.height(15)
 
 	// fondo del tablero de juego
-	game.boardGround("fondo.png")
+	game.boardGround("fondo2.jpg")
 
 	// agregamos a nuestro objeto auto
 	game.addVisualCharacter(auto)
-	keyboard.up().onPressDo({sonido.play()})
-	keyboard.right().onPressDo({sonido.play()})
-	keyboard.down().onPressDo({sonido.play()})
-	keyboard.left().onPressDo({sonido.play()})
 	
+	keyboard.up().onPressDo({
+		sonido.play()
+		auto.moverArriba()
+	})
+	
+	keyboard.right().onPressDo({
+		sonido.play()
+		auto.moverDerecha()
+	})
+	
+	keyboard.down().onPressDo({
+		sonido.play()
+		auto.moverAbajo()
+	})
+	
+	keyboard.x().onPressDo({
+		sonido.caida()
+		auto.tropezar()
+	})
+	
+	keyboard.left().onPressDo({
+		sonido.play()
+		auto.moverIzquierda()
+	})
+	
+	keyboard.space().onPressDo({auto.saltar()
+	sonido.saltar()
 	game.showAttributes(auto)
+	})
 	
-	
-	
-
 	game.start()
 }
 
